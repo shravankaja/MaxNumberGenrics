@@ -10,19 +10,19 @@ public class MaxNumberTest {
 
     @Test
     public void maxNumberFirstPosition() {
-        resultNumber = maxNumber.findMaxNumber(199, 9, 145);
+        resultNumber = maxNumber.findMaxGenric(199, 9, 145);
         Assertions.assertEquals(199, resultNumber);
     }
 
     @Test
     public void maxNumberSecondPosition() {
-        resultNumber = maxNumber.findMaxNumber(149, 264, 156);
+        resultNumber = maxNumber.findMaxGenric(149, 264, 156);
         Assertions.assertEquals(264, resultNumber);
     }
 
     @Test
     public void maxNumberThirdPosition() {
-        resultNumber = maxNumber.findMaxNumber(147, 97, 360);
+        resultNumber = maxNumber.findMaxGenric(147, 97, 360);
         Assertions.assertEquals(360, resultNumber);
     }
 
@@ -31,7 +31,7 @@ public class MaxNumberTest {
         Float firstNumberFloat = Float.valueOf("124.9");
         Float secondNumberFloat = Float.valueOf("10.7");
         Float thirdNumberFloat = Float.valueOf("69.4");
-        resultFloatNumber = maxNumber.findFloatMaxNumber(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
+        resultFloatNumber = maxNumber.findMaxGenric(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
         Assertions.assertEquals(firstNumberFloat, resultFloatNumber);
     }
 
@@ -40,7 +40,7 @@ public class MaxNumberTest {
         Float firstNumberFloat = Float.valueOf("24.9");
         Float secondNumberFloat = Float.valueOf("101.7");
         Float thirdNumberFloat = Float.valueOf("69.4");
-        resultFloatNumber = maxNumber.findFloatMaxNumber(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
+        resultFloatNumber = maxNumber.findMaxGenric(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
         Assertions.assertEquals(secondNumberFloat, resultFloatNumber);
     }
 
@@ -49,25 +49,25 @@ public class MaxNumberTest {
         Float firstNumberFloat = Float.valueOf("11.9");
         Float secondNumberFloat = Float.valueOf("110.7");
         Float thirdNumberFloat = Float.valueOf("169.4");
-        resultFloatNumber = maxNumber.findFloatMaxNumber(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
+        resultFloatNumber = maxNumber.findMaxGenric(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
         Assertions.assertEquals(thirdNumberFloat, resultFloatNumber);
     }
 
     @Test
     public void maxStringFirstPositionTest() {
-        resultString = maxNumber.findMaxString("wa", "h", "s");
+        resultString = maxNumber.findMaxGenric("wa", "h", "s");
         Assertions.assertEquals("wa", resultString);
     }
 
     @Test
     public void maxStringSecondPositionTest() {
-        resultString = maxNumber.findMaxString("h", "wa", "s");
+        resultString = maxNumber.findMaxGenric("h", "wa", "s");
         Assertions.assertEquals("wa", resultString);
     }
 
     @Test
     public void maxStringThirdPositionTest() {
-        resultString = maxNumber.findMaxString("w", "h", "wa");
+        resultString = maxNumber.findMaxGenric("w", "h", "wa");
         Assertions.assertEquals("wa", resultString);
     }
 }
