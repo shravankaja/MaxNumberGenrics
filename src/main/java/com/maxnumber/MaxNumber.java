@@ -1,9 +1,21 @@
 package com.maxnumber;
 
-public class MaxNumber {
+public class MaxNumber<T extends Comparable> {
 
-    public static <E extends Comparable> E findMaxGenric(E firstElement, E secondElement, E thirdElement) {
-        E max = firstElement;
+    T elementFirst, elementSecond, elementThird;
+
+    public MaxNumber(T elementFirst, T elementSecond, T elementThird) {
+        this.elementFirst = elementFirst;
+        this.elementSecond = elementSecond;
+        this.elementThird = elementThird;
+    }
+
+    public T maximum() {
+        return MaxNumber.findMaxGenric(elementFirst, elementSecond, elementThird);
+    }
+
+    public static <T extends Comparable> T findMaxGenric(T firstElement, T secondElement, T thirdElement) {
+        T max = firstElement;
         if ((secondElement.compareTo(max)) > 0) {
             max = secondElement;
         }
@@ -14,23 +26,23 @@ public class MaxNumber {
         return max;
     }
 
-    public static <E> void printMaxGeneric(E firstElement, E secondElement, E thirdElement, E max) {
+    public static <T> void printMaxGeneric(T firstElement, T secondElement, T thirdElement, T max) {
         System.out.println("Enter Integers numbers are : " + firstElement + " " + secondElement + " " + thirdElement + " Max is :" + max);
     }
 
-    public static void main(String Args[]) {
-        System.out.println("Welcome to Max Number Program");
-        Integer firstNumber = Integer.valueOf("199");
-        Integer secondNumber = Integer.valueOf("20");
-        Integer thirdNumber = Integer.valueOf("100");
-        findMaxGenric(firstNumber, secondNumber, thirdNumber);
+    public static <T> void main(String Args[]) {
         Float firstNumberFloat = Float.valueOf("24.9");
-        Float secondNumberFloat = Float.valueOf("10.7");
-        Float thirdNumberFloat = Float.valueOf("69.4");
-        findMaxGenric(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
-        String firstString = String.valueOf("sasasassaqwqdqdcacacasaasdqwqccqqwqwsxsa");
-        String secondString = String.valueOf("HelloShravan");
-        String thirdString = String.valueOf("HelloWorld");
-        findMaxGenric(firstString, secondString, thirdString);
+        Float secondNumberFloat = Float.valueOf("14.5");
+        Float thirdNumberFloat = Float.valueOf("14.9");
+        MaxNumber<Integer> objInteger = new MaxNumber<>(5, 6, 7);
+        MaxNumber<Float> objFloat = new MaxNumber<>(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
+        MaxNumber<String> objString = new MaxNumber<>("Apple", "Banana", "Peach");
+        objInteger.maximum();
+        objFloat.maximum();
+        objString.maximum();
+
+        new MaxNumber(1, 2, 3).maximum();
+        new MaxNumber(firstNumberFloat, secondNumberFloat, thirdNumberFloat).maximum();
+        new MaxNumber("Apple", "Shravan", "Kaja").maximum();
     }
 }
