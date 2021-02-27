@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.maxnumber.MaxNumberTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-02-27T05:45:24" hostname="INTEL-PC" time="0.092">
+  <properties/>
+  <testcase name="maxNumberSecondPosition()" classname="com.maxnumber.MaxNumberTest" time="0.068"/>
+  <testcase name="maxFloatNumberFirstPositionTest()" classname="com.maxnumber.MaxNumberTest" time="0.004"/>
+  <testcase name="maxNumberFirstPosition()" classname="com.maxnumber.MaxNumberTest" time="0.002"/>
+  <testcase name="maxStringSecondPositionTest()" classname="com.maxnumber.MaxNumberTest" time="0.002"/>
+  <testcase name="maxStringThirdPositionTest()" classname="com.maxnumber.MaxNumberTest" time="0.002"/>
+  <testcase name="maxFloatNumberThirdPositionTest()" classname="com.maxnumber.MaxNumberTest" time="0.001"/>
+  <testcase name="maxNumberThirdPosition()" classname="com.maxnumber.MaxNumberTest" time="0.002"/>
+  <testcase name="maxStringFirstPositionTest()" classname="com.maxnumber.MaxNumberTest" time="0.001"/>
+  <testcase name="maxFloatNumberSecondPositionTest()" classname="com.maxnumber.MaxNumberTest" time="0.002"/>
+  <system-out><![CDATA[Enter Integers numbers are : 149 264 156 Max is :264
+Enter Integers numbers are : 124.9 10.7 69.4 Max is :124.9
+Enter Integers numbers are : 199 9 145 Max is :199
+Enter Integers numbers are : h wa s Max is :wa
+Enter Integers numbers are : w h wa Max is :wa
+Enter Integers numbers are : 11.9 110.7 169.4 Max is :169.4
+Enter Integers numbers are : 147 97 360 Max is :360
+Enter Integers numbers are : wa h s Max is :wa
+Enter Integers numbers are : 24.9 101.7 69.4 Max is :101.7
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

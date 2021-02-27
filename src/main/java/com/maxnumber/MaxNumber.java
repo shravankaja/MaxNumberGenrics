@@ -52,7 +52,7 @@ public class MaxNumber<T extends Comparable> {
 
         System.out.println("Sorted List");
         for (T a : elementsTest) {
-            System.out.println(a);
+             
         }
         System.out.println("Max element is : " + elementsTest[n - 1]);
         return elementsTest[n - 1];
