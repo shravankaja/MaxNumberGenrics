@@ -2,47 +2,71 @@ package com.maxnumber;
 
 public class MaxNumber<T extends Comparable> {
 
-    T elementFirst, elementSecond, elementThird;
+    public T[] elements;
+    public T elementsTest;
 
-    public MaxNumber(T elementFirst, T elementSecond, T elementThird) {
-        this.elementFirst = elementFirst;
-        this.elementSecond = elementSecond;
-        this.elementThird = elementThird;
+    public MaxNumber(T... elements) {
+        for (T e : elements) {
+            this.elements = elements;
+        }
     }
 
-    public T maximum() {
-        return MaxNumber.findMaxGenric(elementFirst, elementSecond, elementThird);
+    public <T> void maximumArray() {
+
+        MaxNumber.findMaxGenric(elements);
     }
 
-    public static <T extends Comparable> T findMaxGenric(T firstElement, T secondElement, T thirdElement) {
-        T max = firstElement;
-        if ((secondElement.compareTo(max)) > 0) {
-            max = secondElement;
+    public static <T extends Comparable<T>> T findMaxGenric(T elements[]) {
+        T max = null;
+        int n = elements.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if ((elements[j].compareTo(elements[j + 1])) > 0) {
+                    T temp = elements[j];
+                    elements[j] = elements[j + 1];
+                    elements[j + 1] = temp;
+                }
+            }
         }
-        if ((thirdElement.compareTo(max)) > 0) {
-            max = thirdElement;
+
+        System.out.println("Sorted List");
+        for (T a : elements) {
+            System.out.println(a);
         }
-        printMaxGeneric(firstElement, secondElement, thirdElement, max);
-        return max;
+        System.out.println("Max element is : " + elements[n - 1]);
+        return elements[n - 1];
+    }
+
+    public static <T extends Comparable<T>> T findMaxGenricTest(T... elementsTest) {
+        T max = null;
+        int n = elementsTest.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if ((elementsTest[j].compareTo(elementsTest[j + 1])) > 0) {
+                    T temp = elementsTest[j];
+                    elementsTest[j] = elementsTest[j + 1];
+                    elementsTest[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println("Sorted List");
+        for (T a : elementsTest) {
+            System.out.println(a);
+        }
+        System.out.println("Max element is : " + elementsTest[n - 1]);
+        return elementsTest[n - 1];
     }
 
     public static <T> void printMaxGeneric(T firstElement, T secondElement, T thirdElement, T max) {
-        System.out.println("Enter Integers numbers are : " + firstElement + " " + secondElement + " " + thirdElement + " Max is :" + max);
+        System.out.println(
+                "Enter Elements are : " + firstElement + " " + secondElement + " " + thirdElement + " Max is :" + max);
     }
 
     public static <T> void main(String Args[]) {
-        Float firstNumberFloat = Float.valueOf("24.9");
-        Float secondNumberFloat = Float.valueOf("14.5");
-        Float thirdNumberFloat = Float.valueOf("14.9");
-        MaxNumber<Integer> objInteger = new MaxNumber<>(5, 6, 7);
-        MaxNumber<Float> objFloat = new MaxNumber<>(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
-        MaxNumber<String> objString = new MaxNumber<>("Apple", "Banana", "Peach");
-        objInteger.maximum();
-        objFloat.maximum();
-        objString.maximum();
-
-        new MaxNumber(1, 2, 3).maximum();
-        new MaxNumber(firstNumberFloat, secondNumberFloat, thirdNumberFloat).maximum();
-        new MaxNumber("Apple", "Shravan", "Kaja").maximum();
+        MaxNumber<Integer> maxNumber = new MaxNumber(1000, 5, 9, 8, 7, 52, 63, 962, 2, 59, 5);
+        MaxNumber<String> maxString = new MaxNumber("Apple", "Bannnaa", "Peacha", "Peach");
+        maxString.maximumArray();
+        maxNumber.maximumArray();
     }
 }
