@@ -2,58 +2,20 @@ package com.maxnumber;
 
 public class MaxNumber {
 
-    public static Integer findMaxNumber(Integer firstNumber, Integer secondNumber, Integer thirdNumber) {
-        Integer max = firstNumber;
-        if (secondNumber.compareTo(max) > 0) {
-            max = secondNumber;
+    public static <E extends Comparable> E findMaxGenric(E firstElement, E secondElement, E thirdElement) {
+        E max = firstElement;
+        if ((secondElement.compareTo(max)) > 0) {
+            max = secondElement;
         }
-        if ((thirdNumber.compareTo(max)) > 0) {
-            max = thirdNumber;
+        if ((thirdElement.compareTo(max)) > 0) {
+            max = thirdElement;
         }
-        printMax(firstNumber, secondNumber, thirdNumber, max);
+        printMaxGeneric(firstElement, secondElement, thirdElement, max);
         return max;
     }
 
-    public static Float findFloatMaxNumber(Float firstFloatNumber, Float secondFloatNumber, Float thirdFloatNumber) {
-        Float max = firstFloatNumber;
-        if (secondFloatNumber.compareTo(max) > 0) {
-            max = secondFloatNumber;
-        }
-        if ((thirdFloatNumber.compareTo(max)) > 0) {
-            max = thirdFloatNumber;
-        }
-        printMax(firstFloatNumber, secondFloatNumber, thirdFloatNumber, max);
-        return max;
-    }
-
-    public static String findMaxString( String firstString , String secondString , String thirdString)
-    {
-        String max=firstString;
-        if (secondString.compareTo(max) > 0) {
-            max = secondString;
-        }
-        if ((thirdString.compareTo(max)) > 0) {
-            max = thirdString;
-        }
-        printMax(firstString, secondString, thirdString, max);
-        return max;
-    }
-
-
-    public static void printMax(Integer firstNumber, Integer secondNumber, Integer thirdNumber, Integer max) {
-        System.out.println("Enter Integers numbers are : " + firstNumber + " " + secondNumber + " " + thirdNumber + " Max is :" + max);
-
-    }
-
-    public static void printMax(Float firstNumberFloat, Float secondNumberFloat, Float thirdNumberFloat, Float max) {
-        System.out.println("Enter Float numbers are : " + firstNumberFloat + " " + secondNumberFloat + " " +
-                thirdNumberFloat + " Max is :" + max);
-
-    }
-    public static void printMax( String firstString , String secondString , String thirdString, String max) {
-        System.out.println("Enter Float numbers are : " + firstString + " " + secondString + " " +
-                thirdString + " Max is :" + max);
-
+    public static <E> void printMaxGeneric(E firstElement, E secondElement, E thirdElement, E max) {
+        System.out.println("Enter Integers numbers are : " + firstElement + " " + secondElement + " " + thirdElement + " Max is :" + max);
     }
 
     public static void main(String Args[]) {
@@ -61,14 +23,14 @@ public class MaxNumber {
         Integer firstNumber = Integer.valueOf("199");
         Integer secondNumber = Integer.valueOf("20");
         Integer thirdNumber = Integer.valueOf("100");
-        findMaxNumber(firstNumber, secondNumber, thirdNumber);
+        findMaxGenric(firstNumber, secondNumber, thirdNumber);
         Float firstNumberFloat = Float.valueOf("24.9");
         Float secondNumberFloat = Float.valueOf("10.7");
         Float thirdNumberFloat = Float.valueOf("69.4");
-        findFloatMaxNumber(firstNumberFloat,secondNumberFloat,thirdNumberFloat);
+        findMaxGenric(firstNumberFloat, secondNumberFloat, thirdNumberFloat);
         String firstString = String.valueOf("sasasassaqwqdqdcacacasaasdqwqccqqwqwsxsa");
         String secondString = String.valueOf("HelloShravan");
         String thirdString = String.valueOf("HelloWorld");
-        findMaxString(firstString,secondString,thirdString);
+        findMaxGenric(firstString, secondString, thirdString);
     }
 }
